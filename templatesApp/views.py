@@ -56,6 +56,10 @@ def agregarLibro(request):
         if form.is_valid():
             form.save()
         return ListadoLibros(request)
+    
+    else:
+        form = FormLibros
+        
     data={'form':form}
     return render(request,'agregarLibros.html',data)
 
