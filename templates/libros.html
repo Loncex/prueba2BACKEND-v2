@@ -28,6 +28,7 @@
                     <th>Idioma</th>
                     <th>Paginas</th>
                     <th>Precio</th>
+                    <th>Autores</th>
                     <th>Editorial</th>
                     <th>Acciones</th>
                     
@@ -45,6 +46,11 @@
                     <td>{{libros.idiomaLibro}}</td>
                     <td>{{libros.paginasLibro}}</td>
                     <td>{{libros.precioLibro}}</td>
+                    <td>
+                        {% for autor in libros.autores.all %}
+                            {{ autor.nombreAutor }} {{ autor.apellidoAutor }}<br>
+                        {% endfor %}
+                    </td>
                     <td>{{libros.editorial}}</td>
 
                     <td>

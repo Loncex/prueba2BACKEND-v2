@@ -41,6 +41,9 @@ class Libros(models.Model):
     paginasLibro=models.CharField(max_length = 40)
     precioLibro=models.CharField(max_length = 40)
 
+    # Relación muchos a muchos con Autor
+    autores = models.ManyToManyField(Autor)
+
     # Relación uno a muchos con Editorial
     editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE)
 
