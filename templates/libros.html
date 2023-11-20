@@ -1,0 +1,69 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title>Sistema Libros</title>
+        
+    </head>
+    <body class="container mt-5">
+
+        {% block content %}
+
+        <div class="alert alert-info display-1 text-center">Lista de Libros</div>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <table class="table table-bordered table-inverse table-reponsive">
+            <thead class="table-dark">
+                <tr>
+
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Genero</th>
+                    <th>Año de Publicación</th>
+                    <th>Idioma</th>
+                    <th>Paginas</th>
+                    <th>Precio</th>
+                    <th>Editorial</th>
+                    <th>Acciones</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for libros in libros %}
+                <tr>
+
+                    <td>{{libros.idLibro}}</td>
+                    <td>{{libros.tituloLibro}}</td>
+                    <td>{{libros.generoLibro}}</td>
+                    <td>{{libros.anoPublicacion}}</td>
+                    <td>{{libros.idiomaLibro}}</td>
+                    <td>{{libros.paginasLibro}}</td>
+                    <td>{{libros.precioLibro}}</td>
+                    <td>{{libros.editorial}}</td>
+
+                    <td>
+                        <a href="/eliminarLibro/{{ libros.idLibro }}" class="btn btn-danger btn-sm">Eliminar<i class="bi bi-trash"></i>
+                        <a href="/actualizarLibro/{{ libros.idLibro }}" class="btn btn-primary btn-sm ms-2">Actualizar<i class="bi bi-penceil"></i>
+                    </td>
+                
+                </tr>
+                
+                {% endfor %}
+                
+            </tbody>
+
+        </table>
+    
+        <a href="/" class="btn btn-danger">Volver</a>
+        <a href="/agregarLibros" class="btn btn-danger float-end">Agregar Libro</a>
+
+        {% endblock %}
+
+    </body>
+</html>
